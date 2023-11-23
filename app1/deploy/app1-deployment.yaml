@@ -53,3 +53,5 @@ spec:
 
 
         - containerPort: 80
+      nodeSelector:
+        kubernetes.io/hostname: k8worker1
