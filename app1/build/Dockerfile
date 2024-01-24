@@ -31,7 +31,7 @@ RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 
 # Copy the application code
 
-COPY devops_project1/app1/src/ /var/www/html
+COPY . /var/www/html
 
 
 # Set the working directory
