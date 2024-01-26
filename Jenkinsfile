@@ -24,11 +24,16 @@ pipeline {
             }
         }
         stage('SonarQube Analysis'){
-            script{
-                scannerHome = tool 'sonarqube-scanner'
+            steps{
+                script {
+                   scannerHome = tool 'sonarqube-scanner'
+                }
+                withSonarQubeEnv('sonarqube-server') {
+                   sh "${scannerHome}/bin/sonar-scanner"
+                }
+
             }
-            withSonarQubeEnv('sonarqube-server')
-             sh "${scannerHome}/bin/sonar-scanner"
+
         }
             
     }
