@@ -39,19 +39,12 @@ pipeline {
 
         }
 
-        stage('Build and Test'){
-            steps {
-                sh 'docker build -t titasuddin/app1:latest -f app1/build/Dockerfile .'
-                
-                
-                
-            }
-        }
+     
         stage("Build & Push Docker Image") {
             steps {
                 script {
                     docker.withRegistry('',DOCKER_PASS) {
-                        docker_image = docker.build "${IMAGE_NAME}"
+                        docker_image = docker.build "${IMAGE_NAME}", "-f app1/build/Dockerfile ."
                     }
 
                     docker.withRegistry('',DOCKER_PASS) {
