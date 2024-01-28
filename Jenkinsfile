@@ -9,7 +9,8 @@ pipeline {
         }
         stage('Build and Test'){
             steps {
-                sh 'docker build -t titasuddin/app1:latest -f app1/build/Dockerfile .'
+                //sh 'docker build -t titasuddin/app1:latest -f app1/build/Dockerfile .'
+                sh 'php artisan test'
                 
                 
             }
