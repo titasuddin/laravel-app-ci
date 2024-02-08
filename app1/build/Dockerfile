@@ -25,7 +25,7 @@ COPY app1/src .
 
 
 
-
+RUN rm -rf vendor composer.lock
 RUN composer install
 
 
