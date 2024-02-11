@@ -24,7 +24,7 @@ WORKDIR /var/www/html
 COPY app1/src .
 
 
-RUN composer install --no-dev
+RUN composer install --no-dev --no-install
 
 
 
