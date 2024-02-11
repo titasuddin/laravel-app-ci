@@ -23,8 +23,8 @@ WORKDIR /var/www/html
 
 COPY app1/src .
 
-
-RUN composer update --no-install
+RUN rm -rf vendor composer.lock
+RUN composer install
 
 
 
