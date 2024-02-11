@@ -25,6 +25,8 @@ COPY app1/src .
 
 RUN rm -rf vendor composer.lock
 RUN composer install
+RUN cp .env.example .env
+RUN php artisan key:generate
 
 
 
