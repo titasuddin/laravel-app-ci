@@ -12,7 +12,7 @@ pipeline {
     }
     
     stages{
-        stage('code'){
+        stage('checkout from SCM'){
             steps {
                 git url: 'https://github.com/titasuddin/devops_project1.git', branch: 'main'
             }
