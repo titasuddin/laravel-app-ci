@@ -1,5 +1,5 @@
 ======= Install and Configure the Jenkins-Master =========
-## Install Java
+## Install Java  
 $ sudo apt update
 $ sudo apt upgrade
 $ sudo nano /etc/hostname
