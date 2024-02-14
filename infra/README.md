@@ -1,4 +1,4 @@
-============================================================= Install and Configure the Jenkins-Master =============================================================
+======= Install and Configure the Jenkins-Master =========
 ## Install Java
 $ sudo apt update
 $ sudo apt upgrade
@@ -21,7 +21,7 @@ $ sudo systemctl enable jenkins       //Enable the Jenkins service to start at b
 $ sudo systemctl start jenkins        //Start Jenkins as a service
 $ systemctl status jenkins
 
-============================================================= Install and Configure the SonarQube =============================================================
+======== Install and Configure the SonarQube ==========
 ## Update Package Repository and Upgrade Packages
     $ sudo apt update
     $ sudo apt upgrade
@@ -111,7 +111,8 @@ $ sudo vim /etc/systemd/system/sonar.service
 ## Watch log files and monitor for startup
      $ sudo tail -f /opt/sonarqube/logs/sonar.log
 
-============================================================= Setup Bootstrap Server for eksctl and Setup Kubernetes using eksctl =============================================================
+======== Setup Bootstrap Server for eksctl and Setup Kubernetes using eksctl ============
+
 ## Install AWS Cli on the above EC2
 Refer--https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 $ sudo su
@@ -149,7 +150,8 @@ $ eksctl create cluster --name devops-cluster \
 
 $ kubectl get nodes
 
-============================================================= ArgoCD Installation on EKS Cluster and Add EKS Cluster to ArgoCD =============================================================
+======ArgoCD Installation on EKS Cluster and Add EKS Cluster to ArgoCD ===========
+
 1 ) First, create a namespace
     $ kubectl create namespace argocd
 
