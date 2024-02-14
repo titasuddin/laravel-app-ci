@@ -17,6 +17,23 @@ pipeline {
                 git url: 'https://github.com/titasuddin/devops_project1.git', branch: 'main'
             }
         }
+	stage("Unit test") {
+            steps {
+		sh "pwd"
+                dir('app/src') {
+                sh "pwd"
+		sh 'rm -rf vendor composer.lock
+		sh 'cp .env.example .env'
+		sh 'php artisan key:generate'
+		sh 'composer install'
+		sh 'php artisan test'
+		}
+	    }
+    }
+    sh "pwd"
+                sh 'php artisan test'
+            }
+        }
         
         stage('SonarQube Analysis'){
             steps{
