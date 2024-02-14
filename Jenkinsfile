@@ -29,11 +29,8 @@ pipeline {
 		sh 'php artisan test'
 		}
 	    }
-    }
-    sh "pwd"
-                sh 'php artisan test'
-            }
-        }
+       }
+    
         
         stage('SonarQube Analysis'){
             steps{
