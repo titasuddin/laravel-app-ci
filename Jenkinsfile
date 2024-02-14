@@ -24,6 +24,7 @@ pipeline {
                   sh "pwd"
 		          sh 'rm -rf vendor composer.lock'
 		          sh 'cp .env.example .env'
+                  sh 'composer install'
 		          sh 'php artisan key:generate'
 		          sh 'composer install'
 		          sh 'php artisan test'
