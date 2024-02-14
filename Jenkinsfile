@@ -14,7 +14,7 @@ pipeline {
     stages{
         stage('checkout from SCM') {
             steps {
-                git url: 'https://github.com/titasuddin/devops_project1.git', branch: 'main'
+                git url: 'https://github.com/titasuddin/laravel-app-ci.git', branch: 'main'
             }
         }
 	    stage("Unit test") {
