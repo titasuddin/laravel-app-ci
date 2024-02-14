@@ -21,7 +21,7 @@ WORKDIR /var/www/html
 # Copy the application code
 
 
-COPY app1/src .
+COPY app/src .
 
 RUN rm -rf vendor composer.lock
 RUN composer install
