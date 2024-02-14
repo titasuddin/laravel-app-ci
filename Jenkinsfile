@@ -12,27 +12,29 @@ pipeline {
     }
     
     stages{
-        stage('checkout from SCM'){
+        stage('checkout from SCM') {
             steps {
                 git url: 'https://github.com/titasuddin/devops_project1.git', branch: 'main'
             }
         }
-	stage("Unit test") {
-            steps {
-		sh "pwd"
+	    stage("Unit test") {
+           steps {
+		      sh "pwd"
                 dir('app/src') {
-                sh "pwd"
-		sh 'rm -rf vendor composer.lock
-		sh 'cp .env.example .env'
-		sh 'php artisan key:generate'
-		sh 'composer install'
-		sh 'php artisan test'
+                  sh "pwd"
+		          sh 'rm -rf vendor composer.lock
+		          sh 'cp .env.example .env'
+		          sh 'php artisan key:generate'
+		          sh 'composer install'
+		          sh 'php artisan test'
+                }
+              sh "pwd"
+           }
 		}
-	    }
-       }
+	    
     
         
-        stage('SonarQube Analysis'){
+        stage("SonarQube Analysis") {
             steps{
                 script {
                    scannerHome = tool 'sonarqube-scanner'
@@ -44,7 +46,7 @@ pipeline {
             }
 
         }
-        stage("Quality Gate"){
+        stage("Quality Gate") {
            steps {
                script {
                     waitForQualityGate abortPipeline: false, credentialsId: 'jenkins-sonarqube-token'
@@ -77,7 +79,7 @@ pipeline {
             }
         }
 
-	stage("Trigger CD Pipeline") {
+	    stage("Trigger CD Pipeline") {
             steps {
                 script {
                     sh "curl -v -k --user admin:${JENKINS_API_TOKEN} -X POST -H 'cache-control: no-cache' -H 'content-type: application/x-www-form-urlencoded' --data 'IMAGE_TAG=${IMAGE_TAG}' '13.200.82.127:8080/job/laravel-app-cd/buildWithParameters?token=gitops-token'"
